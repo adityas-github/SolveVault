@@ -1,0 +1,60 @@
+Sure! Let's break down the problem step by step:
+
+### Problem Overview:
+
+You are stranded on an island where the only available food is coconut sweets. You need to survive on this island for a certain number of days, and to do so, you must consume a fixed number of coconut sweets daily. The sweets come in boxes, and you can buy at most one box per day. However, you can't purchase sweets on Sundays. The problem asks you to determine the minimum number of boxes you need to buy in order to survive for the specified number of days. If survival isn't possible, you should return `-1`.
+
+### Inputs:
+- **N**: The number of coconut sweets per box.
+- **E**: The number of coconut sweets you must eat daily.
+- **D**: The total number of days you need to survive.
+
+### Output:
+- The minimum number of times you need to buy coconut sweets, or `-1` if survival is not possible.
+
+### Key Points to Consider:
+1. **Daily Consumption**: Each day, you must consume `E` sweets.
+2. **Box Capacity**: Each box contains `N` sweets.
+3. **Sunday Restriction**: You cannot buy sweets on Sundays, which means you have to plan ahead to ensure you have enough sweets for Sundays.
+4. **Survival Condition**: The total number of sweets you require over `D` days is `E * D`. You need to determine if it's possible to buy enough sweets on the other days to meet this requirement.
+
+### Example 1:
+
+- **Input**: 
+  - `N = 16` (16 sweets per box)
+  - `E = 2` (2 sweets needed daily)
+  - `D = 10` (10 days to survive)
+  
+- **Explanation**:
+  - In 8 days, you need to eat `2 * 8 = 16` sweets, which means 1 box will be enough for the first 8 days.
+  - On the 9th day, you buy a second box, which will last for the remaining 8 days (but you only need it for 2 days).
+  - Therefore, you need to buy 2 boxes to survive for 10 days. 
+  - **Output**: `2`
+
+### Example 2:
+
+- **Input**: 
+  - `N = 50` (50 sweets per box)
+  - `E = 48` (48 sweets needed daily)
+  - `D = 7` (7 days to survive)
+
+- **Explanation**:
+  - From Monday to Saturday, you can buy 6 boxes, consuming 48 sweets daily, leaving you with 2 extra sweets each day.
+  - By Sunday, you would have saved `6 * 2 = 12` sweets, but you still need 48 sweets for Sunday.
+  - Since you cannot purchase a box on Sunday and don't have enough sweets saved, survival isn't possible.
+  - **Output**: `-1`
+
+### How to Solve the Problem:
+1. **Check if Survival is Possible**: 
+   - Calculate the total number of sweets required (`E * D`).
+   - Determine if it's possible to purchase enough boxes on non-Sunday days to meet this requirement.
+   
+2. **Simulate Each Day**:
+   - Start from Monday and track the number of boxes bought and the number of sweets left.
+   - Skip Sunday, as you cannot buy sweets on that day.
+
+3. **Return Result**:
+   - If you manage to buy enough sweets within the allowed days, return the total number of boxes bought.
+   - If not, return `-1` to indicate that survival isn't possible.
+
+This problem requires careful planning of resources (sweets) and constraints (no buying on Sundays). The goal is to determine the minimum number of boxes needed while adhering to the daily consumption requirement.
