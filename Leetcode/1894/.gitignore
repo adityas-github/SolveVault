@@ -1,0 +1,7 @@
+# Ignore specific file extensions or patterns
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dylib
